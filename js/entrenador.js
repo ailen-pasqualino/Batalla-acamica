@@ -1,7 +1,7 @@
 class Entrenador {
-    constructor(nombre,pokemon){
+    constructor(nombre,pokemones){
         this.nombre = nombre;
-        this.pokemones = pokemon
+        this.pokemones = pokemones
     }
 
     atacar(){

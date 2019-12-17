@@ -4,7 +4,7 @@ class Pokemon {
         this.sprite = sprite,
         this.tipo = tipo,
         this.vida = vida,
-        this.ataque = ataque
+        this.ataques = ataques
     }
 
     atacar(){}

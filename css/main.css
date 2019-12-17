@@ -1,0 +1,26 @@
+body{
+    background: url("../img/stadium.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 100vh;
+    overflow-y: hidden;
+}
+
+.pokemon{
+    width: 250px;
+}
+
+.vida{
+    display: block;
+    width: 200px;
+    height: 5px;
+    background-color: green;
+}
+
+.foto-perfil{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: greenyellow;
+    float: left;
+}
