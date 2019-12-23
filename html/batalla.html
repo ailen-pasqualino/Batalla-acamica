@@ -8,34 +8,34 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body id = "principal">
-    <main >
+    <div id="viewport">
         <section id="intro"></section>
         <section id="batalla">
-            <div id="area-jugador">
+            <div class="area" id="area-jugador">
                 <div class="datos-pokemon">
                     <img class="foto-perfil" src="" alt="">
-                    <div class="vida" id="vida-jugador"></div>
+                    <progress class="vida vida-jugador" ></progress>
                 </div>
 
                 <img class="pokemon" id="pokemon-jugador" src="" alt="">
 
             </div>
-            <div id="area-enemigo">
+            <div class="area" id="area-enemigo">
                 <div class="datos-pokemon">
                     <img class="foto-perfil" src="" alt="">
-                    <div class="vida" id="vida-enemigo"></div>
+                    <progress class="vida vida-enemigo"></progress>
                 </div>
                 
                 <img class="pokemon" id="pokemon-enemigo"  src="" alt="">
             </div>
-            <div>
-                <ul>
+            <div id="ataques">
+                <ul class="lista" id="lista-ataques">
                     
                 </ul>
             </div>
         </section>
         <section id="end"></section>
-    </main>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 

@@ -1,7 +1,7 @@
 class Ataques {
-    constructor(tipo,nombre,dano){
+    constructor(tipo,nombre,danio){
         this.tipo = tipo,
         this.nombre = nombre,
-        this.dano = dano
+        this.danio = danio
     }
 }

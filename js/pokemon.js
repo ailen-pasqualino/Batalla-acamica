@@ -7,7 +7,20 @@ class Pokemon {
         this.ataques = ataques
     }
 
-    atacar(){}
+    atacar({
+        pokemon, 
+        ataqueNombre ,
+        danio
+    }){
+        console.log("aaaaaa" +pokemon);
+        console.log("bbbbbbbbbb" +danio);
+        pokemon.perderVida(danio,pokemon);
+    }
 
+    perderVida(danio,pokemon){
+        console.log(pokemon.vida)
+        pokemon.vida -= danio;
+        console.log(pokemon.vida);
+    }
 
 }
