@@ -8,13 +8,13 @@ class Pokemon {
     }
 
     atacar({
-        pokemon, 
+        pokemonAtacado, 
         ataqueNombre ,
         danio
     }){
-        console.log("aaaaaa" +pokemon);
+        console.log("aaaaaa" +pokemonAtacado);
         console.log("bbbbbbbbbb" +danio);
-        pokemon.perderVida(danio,pokemon);
+        pokemonAtacado.perderVida(danio,pokemonAtacado);
     }
 
     perderVida(danio,pokemon){
