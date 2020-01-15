@@ -7,8 +7,10 @@
 
 
         var Garchomp = new Pokemon("Garchomp", "../img/pokemon-06.png", "Dragon", 300, [
-            new Ataques("fuego", "Terremoto", 100),
-            new Ataques("agua", "Carga Dragon", 100)
+            new Ataques("fuego", "ataque01", 100,"../img/ataque01.png"),
+            new Ataques("agua", "ataque02", 100,"../img/ataque02.png"),
+            new Ataques("fuego", "ataque01", 100,"../img/ataque01.png"),
+            new Ataques("agua", "ataque02", 100,"../img/ataque02.png")
         ]);
 
         var Pikachu = new Pokemon("Pikachu", "../img/pokemon-03.png", "Dragon", 100, [
@@ -47,6 +49,8 @@
             let ataque = document.createElement("li");
             ataque.innerText = element.nombre;
             ataque.className = "ataque-item";
+            //let ataqueIcono = document.createElement("img").attr("src",element.nombre);
+            //element.appendChild(ataqueIcono);
             $(ataque).click(function () {
                 console.log("ENEMIGO QUE VAMOS ATACAR " + enemigo.pokemones[enemigoPokemon]);
                 console.log("DANIO " + element.danio);
@@ -57,7 +61,7 @@
             })
 
             $("#lista-ataques").append(ataque);
-
+            
         });
 
 
@@ -86,6 +90,7 @@
                 } else {
                     
                     console.log("GANAMOS");
+                    alert("ganaste");
                     //cambiar al otro pokemon si tiene
                 }
                 turno = 0;
@@ -114,10 +119,23 @@ function perdimos(){
     console.log("llegaaaaaaaaaaaaaaa");
    
         console.log("PERDIMOS");
+        alert("Perdiste")
     
 }
 
 //chequear si morimos --> hacer funcion
-               //dibujar en pantalla, bindear clicks 
-               //hcer controlador
-               //archivo que construya vista controlador y los inicie
+//dibujar en pantalla, bindear clicks 
+//hcer controlador
+//archivo que construya vista controlador y los inicie
+
+/*
+
+crear archivos:
+
+-Batalla
+-Vista batalla
+-Batalla controlada
+
+
+
+*/

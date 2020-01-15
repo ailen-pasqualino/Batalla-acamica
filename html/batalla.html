@@ -4,38 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
     <title>Batalla Pokemón</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
-<body id = "principal">
-    <div id="viewport">
-        <section id="intro"></section>
-        <section id="batalla">
-            <div class="area" id="area-jugador">
-                <div class="datos-pokemon">
-                    <img class="foto-perfil" src="" alt="">
-                    <progress class="vida vida-jugador" ></progress>
+<body>
+    <div id="background">
+        <div id="viewport">
+            <section id="intro"></section> <!--/intro-->
+        
+            <section id="batalla">
+                <nav class="flex justify-content-between">
+                    <div id="hora" class="flex">
+                        <img src="../img/timer.png" alt="clock icon">
+                        <p id="timer">01:02:03</p>
+                    </div>
+
+                    <div id="exit" class="flex">
+                        <p>EXIT</p>
+                        <button><img src="../img/exit.png" alt="close"></button>
+                    </div>
+                </nav><!--/nav-->
+
+                <div id="vida-fila" class="flex justify-content-between">
+                    <div class="vida-card flex justify-content-between" id="jugador-card">
+                        <img src="../img/pokedex.png" alt="pokedex">
+                        <div class="vida-info">
+                            <p>Pokemón Jugador</p>
+                            <progress class="vida vida-jugador" ></progress>
+                            <p class="vida-valor">100 / 100</p>
+                        </div>
+                    </div><!--/jugador-card-->
+
+                    <div class="vida-card flex justify-content-between" id="enemigo-card">
+                        <img src="../img/pokedex.png" alt="pokedex">
+                        <div class="vida-info">
+                            <p>Pokemón Enemigo</p>
+                            <progress class="vida vida-enemigo" ></progress>
+                            <p class="vida-valor">100 / 100</p>
+                        </div>
+                    </div><!--/enemigo-card-->
+                </div><!--/vida-fila-->
+
+                <div id="pantalla" class="w-100">
+                    <div id="pantalla-info">
+                        <img src="../img/pokemongo_logo.png" alt="pokemonGO">
+                    </div>
+                </div><!--/pantalla-->
+
+                <div id="personajes" class="w-100">
+                    <div id="players" class="flex justify-content-between">
+                        <div class="player" id="avatar-jugador">
+                            <img src="../img/player01.png" alt="player-jugador">
+                        </div>
+                        <div class="player" id="avatar-enemigo">
+                            <img src="../img/player02.png" alt="player-enemigo">
+                        </div>
+                    </div><!--/players-->
+
+                    <div id="pokemones-batalla" class="flex justify-content-between">
+                        <div class="pokemon-batalla" id="pokemonBatalla-jugador">
+                            <img id="pokemon-jugador" src="../img/pokemon-01.png" alt="pokemonBatalla-jugador">
+                        </div>
+                        <div class="pokemon-batalla" id="pokemonBatalla-enemigo">
+                            <img id="pokemon-enemigo" src="../img/pokemon-02.png" alt="pokemonBatalla-enemigo">
+                        </div>
+                    </div><!--/pokemones-batalla-->
+                </div><!--/personajes-->
+
+                <div id="seleccion-pokemones" class="circular-menu circular-menu-left">
+
+                    <a class="floating-btn btn-seleccion" onclick="document.getElementById('seleccion-pokemones').classList.toggle('active');">
+                        <img src="../img/pokebolas.png" alt="pokebolas">
+                    </a>
+
+                    <menu class="items-wrapper menu-pokemones">
+                        <a href="#" class="menu-item fa fa-home"><img src="../img/pokemon-05.png" alt="pokemon1"></a>
+                        <a href="#" class="menu-item fa fa-user"><img src="../img/pokemon-06.png" alt="pokemon2"></a>
+                        <a href="#" class="menu-item fa fa-pie-chart"><img src="../img/pokemon-07.png" alt="pokemon3"></a>
+                        <a href="#" class="menu-item fa fa-cog"><img src="../img/pokemon-10.png" alt="pokemon4"></a>
+                    </menu>
+                </div><!--/seleccion-pokemones-->
+
+                <div id="controles">
+                    <div id="ataques">
+                        <ul class="lista flex" id="lista-ataques">
+                            
+                        </ul>
+                    </div>
+                    <div id="elixir">
+                        <img src="../img/elixir.png" alt="elixir">
+                        <p>Elixir</p>
+                    </div>
                 </div>
 
-                <img class="pokemon" id="pokemon-jugador" src="" alt="">
+                <!--
+                <div class="area" id="area-jugador">
+                    <div class="datos-pokemon">
+                        <img class="foto-perfil" src="" alt="">
+                        <progress class="vida vida-jugador" ></progress>
+                    </div>
 
-            </div>
-            <div class="area" id="area-enemigo">
-                <div class="datos-pokemon">
-                    <img class="foto-perfil" src="" alt="">
-                    <progress class="vida vida-enemigo"></progress>
+                    <img class="pokemon" id="pokemon-jugador" src="" alt="">
+
                 </div>
-                
-                <img class="pokemon" id="pokemon-enemigo"  src="" alt="">
-            </div>
-            <div id="ataques">
-                <ul class="lista" id="lista-ataques">
+                <div class="area" id="area-enemigo">
+                    <div class="datos-pokemon">
+                        <img class="foto-perfil" src="" alt="">
+                        <progress class="vida vida-enemigo"></progress>
+                    </div>
                     
-                </ul>
-            </div>
-        </section>
-        <section id="end"></section>
-    </div>
+                    <img class="pokemon" id="pokemon-enemigo"  src="" alt="">
+                </div>
+                <div id="ataques">
+                    <ul class="lista" id="lista-ataques">
+                        
+                    </ul>
+                </div> -->
+            </section><!--/batalla-->
+
+            <section id="end"></section><!--/end-->
+
+        </div><!--/viewport-->
+    </div> <!--/background-->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
