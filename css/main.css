@@ -66,7 +66,7 @@ body{
     padding: 12px;
 }
 
-#hora p,#exit p{
+#hora p,#exit p,.ataque-item p,#elixir p{
     color: var(--light);
     font-size: 16px;
     font-family: var(--font);
@@ -284,7 +284,6 @@ body{
 
 #controles{
     max-width: 140px;
-    background-color: red;
     position: absolute;
     right: 12%;
     bottom: 12%;
@@ -292,33 +291,50 @@ body{
 }
 
 #controles img{
-    height: 50px;;
+    height: 40px;
 }
 
 #lista-ataques{
     margin: 0;
     padding: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .ataque-item{
     width: 70px;
     height: 100px;
-    background-color: slategrey;
+    background: linear-gradient(120deg, #eaf7fe, #b0d5e5);
     list-style: none;
+    padding-top: 30px;
 }
 
 #elixir{
-    margin-top: 20px;
+    background: linear-gradient(120deg, #004ae3, #17c1f6);
+    padding: 20px 10px;
+    border-radius: 4px;
 }
 
-.ataque-item img,#elixir img{
+.ataque-item img{
     display: block;
     margin: 0 auto;
 }
 
+#elixir img{
+    display: block;
+    margin-right: 10px;
+}
+
 .ataque-item p,#elixir p{
     text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    align-self: center;
+    color: black;
+    font-size: 13px;
 }
+
+.ataque-item p{ margin: 0 0 10px 0; }
 
 
 

@@ -7,7 +7,7 @@
 
 
         var Garchomp = new Pokemon("Garchomp", "../img/pokemon-06.png", "Dragon", 300, [
-            new Ataques("fuego", "ataque01", 100,"../img/ataque01.png"),
+            new Ataques("fuego", "holi", 100,"../img/ataque01.png"),
             new Ataques("agua", "ataque02", 100,"../img/ataque02.png"),
             new Ataques("fuego", "ataque01", 100,"../img/ataque01.png"),
             new Ataques("agua", "ataque02", 100,"../img/ataque02.png")
@@ -31,10 +31,13 @@
         var jugadorVida = jugador.pokemones[pokemonElegido].vida;
         var enemigoVida = enemigo.pokemones[enemigoPokemon].vida;
 
-        
-
         var turno = 0;
 
+        //MVC
+
+        //var controlador = new BatallaControlador(jugador,enemigo);
+        //var vistaBatalla = new VistaBatalla(jugador,enemigo,controlador);
+       //vistaBatalla.iniciar();
 
         $('#pokemon-jugador').attr('src', jugador.pokemones[pokemonElegido].sprite);
         $('#pokemon-enemigo').attr('src', enemigo.pokemones[enemigoPokemon].sprite);
@@ -47,10 +50,15 @@
 
         jugador.pokemones[pokemonElegido].ataques.forEach(element => {
             let ataque = document.createElement("li");
-            ataque.innerText = element.nombre;
+            let im = document.createElement("img");
+            im.src = element.sprite;
+            let p = document.createElement("p");
+            p.innerText = element.nombre;
+            //ataque.innerText = element.nombre;
             ataque.className = "ataque-item";
-            //let ataqueIcono = document.createElement("img").attr("src",element.nombre);
-            //element.appendChild(ataqueIcono);
+            
+            console.log(element.sprite);
+            //controlador
             $(ataque).click(function () {
                 console.log("ENEMIGO QUE VAMOS ATACAR " + enemigo.pokemones[enemigoPokemon]);
                 console.log("DANIO " + element.danio);
@@ -59,8 +67,10 @@
                 turno = 1;
                 cambioTurno();
             })
-
+            ataque.append(im);
+            ataque.append(p);
             $("#lista-ataques").append(ataque);
+            
             
         });
 
