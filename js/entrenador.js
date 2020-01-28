@@ -5,9 +5,4 @@ class Entrenador {
         this.pokemones_vivos = pokeVivos;
     }
 
-    atacar(){
-        //llamar al metodo atacar de pokemon
-    }
-
-
 }

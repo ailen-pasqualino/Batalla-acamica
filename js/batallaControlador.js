@@ -1,60 +1,58 @@
 class BatallaControlador{
     
-    constructor(jugador,enemigo){
+    constructor(jugador,enemigo,turno){
         this.jugador = jugador;
         this.enemigo = enemigo;
+        this.turno = turno;
     }
-   
-}
 
-var turno = 0;
+    ataqueJugador(pokemonElegido,enemigoPokemon,danio) {
+        console.log("ENEMIGO QUE VAMOS ATACAR " + enemigo);
+        pokemonElegido.atacar(enemigoPokemon, danio);
+        turno = 1;
+        this.cambioTurno(pokemonElegido,enemigoPokemon);
+    }
 
-
-function ataqueJugador() {
-    console.log("ENEMIGO QUE VAMOS ATACAR " + enemigo.pokemones[enemigoPokemon]);
-    console.log("DANIO " + element.danio);
-    jugador.pokemones[pokemonElegido].atacar(enemigo.pokemones[enemigoPokemon], element.nombre, element.danio);
-    barraVidaEnemigo.attr("value", enemigo.pokemones[enemigoPokemon].vida);
-    turno = 1;
-    cambioTurno();
-}
-
-function cambioTurno() {
+    cambioTurno(pokemonElegido,enemigoPokemon) {
                 
-    if(turno == 1 && enemigo.pokemones[enemigoPokemon].vida > 0){
-        ataqueEnemigo();
-        
-    } else {
-        
-        console.log("GANAMOS");
-        alert("ganaste");
-        //cambiar al otro pokemon si tiene
+        if(turno == 1 && enemigoPokemon.vida > 0){
+            this.ataqueEnemigo(pokemonElegido,enemigoPokemon);
+            
+        } else {
+            
+            console.log("GANAMOS");
+            alert("ganaste");
+            //cambiar al otro pokemon si tiene
+        }
+        turno = 0;
     }
-    turno = 0;
+
+    ataqueEnemigo(pokemonElegido,enemigoPokemon){
+        
+        console.log("vida nuestra" + pokemonElegido.vida);
+        /* enemigo.pokemones[0].atacar({
+            pokemonAtacado: jugador.pokemones[0],
+            ataqueNombre: element.nombre,
+            danio: element.danio
+        }) */
+        pokemonElegido.vida -= enemigoPokemon.ataques[parseInt(Math.random() *(enemigoPokemon.ataques.length - 0) + 0)].danio;
+         
+        
+        console.log("VIDA NUESTRA DESPUES DEL ATAQUE " + pokemonElegido.vida);
+        if(pokemonElegido.vida <= 0){
+            this.perdimos(pokemonElegido,enemigoPokemon);
+        }
+    }
+
+    perdimos(){
+        console.log("llegaaaaaaaaaaaaaaa");
+       
+            console.log("PERDIMOS");
+            alert("Perdiste")
+        
+    }
 }
 
-function ataqueEnemigo(){
-        
-    console.log("vida nuestra" + jugador.pokemones[pokemonElegido].vida);
-    /* enemigo.pokemones[0].atacar({
-        pokemonAtacado: jugador.pokemones[0],
-        ataqueNombre: element.nombre,
-        danio: element.danio
-    }) */
-    jugador.pokemones[pokemonElegido].vida -= enemigo.pokemones[enemigoPokemon].ataques[parseInt(Math.random() *(enemigo.pokemones[enemigoPokemon].ataques.length - 0) + 0)].danio;
-     
-    barraVidaJugador.attr("value", jugador.pokemones[pokemonElegido].vida);
-    console.log("VIDA NUESTRA DESPUES DEL ATAQUE " + jugador.pokemones[pokemonElegido].vida);
-    if(jugador.pokemones[pokemonElegido].vida <= 0){
-        perdimos();
-    }
-}
 
-function perdimos(){
-    console.log("llegaaaaaaaaaaaaaaa");
-   
-        console.log("PERDIMOS");
-        alert("Perdiste")
-    
-}
+
 

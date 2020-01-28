@@ -7,13 +7,13 @@ class Pokemon {
         this.ataques = ataques
     }
 
-    atacar(pokemonAtacado, ataqueNombre, danio){
+    atacar(pokemonAtacado, danio){
         console.log("POKEMON QUE VA HACER ATAKADO" +pokemonAtacado);
         console.log("DANIO CAUSADO" +danio);
-        pokemonAtacado.perderVida(danio,pokemonAtacado);
+        pokemonAtacado.perderVida(pokemonAtacado,danio);
     }
 
-    perderVida(danio,pokemon){
+    perderVida(pokemon,danio){
         console.log("VIDA ANTES DEL ATAQUE " +pokemon.vida)
         pokemon.vida -= danio;
         console.log("VIDA DESPUES DEL ATAQUE " +pokemon.vida);

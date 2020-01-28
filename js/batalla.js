@@ -1,151 +1,120 @@
+//PLANTA
+var PetalBlizzard= new Ataques("Planta","Petal Blizzard",90,"./img/ataque09.png");
+var RazorLeaf = new Ataques("Planta","Razor Leaf",55,"");
+var SolarBeam = new Ataques("Planta","Solar Beam",120,"");
 
-        //Declaracion de pokemones
-        var Charizard = new Pokemon("Charizard", "../img/pokemon-01.png", "fuego", 200, [
-            new Ataques("fuego", "ascuas", 30),
-            new Ataques("agua", "lanzallamas", 75)
-        ]);
+//NORMAL
+var DobleEdge = new Ataques("Normal","Doble Edge",120,"");
+var Slash = new Ataques("Normal","Slash",70,"");
+var SkullBash = new Ataques("Normal","Skull Bash",130,"");
+var QuickAttack = new Ataques("Normal","Quick Attack",40,"");
+var Swift = new Ataques("Normal","Swift",60,"");
 
+//FUEGO
+var Flamethrower = new Ataques("Fuego","Flamethrower",90,"");
 
-        var Garchomp = new Pokemon("Garchomp", "../img/pokemon-06.png", "Dragon", 300, [
-            new Ataques("fuego", "holi", 100,"../img/ataque01.png"),
-            new Ataques("agua", "ataque02", 100,"../img/ataque02.png"),
-            new Ataques("fuego", "ataque01", 100,"../img/ataque01.png"),
-            new Ataques("agua", "ataque02", 100,"../img/ataque02.png")
-        ]);
+//FANTASMA
+var ShadowClaw = new Ataques("Fantasma","Shadow Claw",70,"");
+var ShadowBall = new Ataques("Fantasma","Shadow Ball",80,"")
 
-        var Pikachu = new Pokemon("Pikachu", "../img/pokemon-03.png", "Dragon", 100, [
-            new Ataques("fuego", "ajjajajaja", 100),
-            new Ataques("agua", "eeeeeeeee", 100),
-            new Ataques("dragon", "aaaaaaaaa", 40)
-        ]);
+//DRAGON
+var DragonClaw = new Ataques("Dragon","Dragon Claw",80,"");
+var Twister = new Ataques("Dragon","Twister",40,"");
+//AGUA
+var WaterPulse = new Ataques("Agua","Water Pulse",60,"");
+var HydroPump = new Ataques("Agua","Hydro Pump",110,"");
 
-        var pokemonElegido = parseInt(prompt("Elige el pokemon "));
+//SINIESTRO
+var Bite = new Ataques("Siniestro","Bite",60,"");
+var SuckerPunch = new Ataques("Siniestro","Sucker Punch",70,"");
+var DarkPulse = new Ataques("Siniestro","Dark Pulse",80,"");
 
-        //Declaracion de entrenadores
-        var jugador = new Entrenador("yo", [Garchomp, Pikachu]);
-        var enemigo = new Entrenador("Gary", [Charizard, Pikachu]);
-        //enemigo eleccion aleatoria de pokemon 
-        var enemigoPokemon = parseInt(Math.random() *(enemigo.pokemones.length - 0) + 0);
+//VOLADOR
+var AirSlash = new Ataques("Volador","Air Slash",75,"");
+var WingAttack = new Ataques("Volador","Wing Attack",60,"");
+var DrillPeck = new Ataques("Volador","Drill Peck",80,"");
 
-        //Declaracion de vidas
-        var jugadorVida = jugador.pokemones[pokemonElegido].vida;
-        var enemigoVida = enemigo.pokemones[enemigoPokemon].vida;
+//ELECTRICO
+var Thunder = new Ataques("Electrico","Thunder",110,"");
+var Lighting = new Ataques("Electrico","Lighting",90,"");
 
-        var turno = 0;
+//PSIQUICO
+var Psychic = new Ataques("Psiquico","Psychic",90,"");
 
-        //MVC
+//LUCHA
+var Aura_Sphere = new Ataques("Lucha","Aura Sphere",80,"");
 
-        //var controlador = new BatallaControlador(jugador,enemigo);
-        //var vistaBatalla = new VistaBatalla(jugador,enemigo,controlador);
-       //vistaBatalla.iniciar();
-
-        $('#pokemon-jugador').attr('src', jugador.pokemones[pokemonElegido].sprite);
-        $('#pokemon-enemigo').attr('src', enemigo.pokemones[enemigoPokemon].sprite);
-
-
-        $(".vida-jugador").attr("max", jugador.pokemones[pokemonElegido].vida)
-        $(".vida-enemigo").attr("max", enemigo.pokemones[enemigoPokemon].vida)
-
-
-
-        jugador.pokemones[pokemonElegido].ataques.forEach(element => {
-            let ataque = document.createElement("li");
-            let im = document.createElement("img");
-            im.src = element.sprite;
-            let p = document.createElement("p");
-            p.innerText = element.nombre;
-            //ataque.innerText = element.nombre;
-            ataque.className = "ataque-item";
-            
-            console.log(element.sprite);
-            //controlador
-            $(ataque).click(function () {
-                console.log("ENEMIGO QUE VAMOS ATACAR " + enemigo.pokemones[enemigoPokemon]);
-                console.log("DANIO " + element.danio);
-                jugador.pokemones[pokemonElegido].atacar(enemigo.pokemones[enemigoPokemon], element.nombre, element.danio);
-                barraVidaEnemigo.attr("value", enemigo.pokemones[enemigoPokemon].vida);
-                turno = 1;
-                cambioTurno();
-            })
-            ataque.append(im);
-            ataque.append(p);
-            $("#lista-ataques").append(ataque);
-            
-            
-        });
+//TIERRA
+var Earthquake = new Ataques("Tierra","Earthquake",100,"");
 
 
-        //Linkeamos progress bar con vidas
-        let barraVidaEnemigo = $(".vida-enemigo");
-        let barraVidaJugador = $(".vida-jugador");
-
-        barraVidaJugador.attr("max", jugadorVida);
-        barraVidaEnemigo.attr("max", enemigoVida);
-
-        barraVidaJugador.attr("value", jugador.pokemones[pokemonElegido].vida);
-        barraVidaEnemigo.attr("value", enemigo.pokemones[enemigoPokemon].vida);
-
- 
-            let ataques = document.querySelectorAll(".ataque-item");
-
-           
-                //enemigo.pokemones[0].vida -= 20;
-                console.log("VIDA NUESTRA " + jugador.pokemones[pokemonElegido].vida);
-                //console.log(ataques);
-            function cambioTurno() {
-                
-                if(turno == 1 && enemigo.pokemones[enemigoPokemon].vida > 0){
-                    ataqueEnemigo();
-                    
-                } else {
-                    
-                    console.log("GANAMOS");
-                    alert("ganaste");
-                    //cambiar al otro pokemon si tiene
-                }
-                turno = 0;
-            }
-                
-
-    function ataqueEnemigo(){
-        
-        console.log("vida nuestra" + jugador.pokemones[pokemonElegido].vida);
-        /* enemigo.pokemones[0].atacar({
-            pokemonAtacado: jugador.pokemones[0],
-            ataqueNombre: element.nombre,
-            danio: element.danio
-        }) */
-        jugador.pokemones[pokemonElegido].vida -= enemigo.pokemones[enemigoPokemon].ataques[parseInt(Math.random() *(enemigo.pokemones[enemigoPokemon].ataques.length - 0) + 0)].danio;
-         
-        barraVidaJugador.attr("value", jugador.pokemones[pokemonElegido].vida);
-        console.log("VIDA NUESTRA DESPUES DEL ATAQUE " + jugador.pokemones[pokemonElegido].vida);
-        if(jugador.pokemones[pokemonElegido].vida <= 0){
-            perdimos();
-        }
-    }
+//POKEMONS
+var Venusaur = new Pokemon("Venusaur", "../img/pokemon-01.png", "Planta", 200, [
+    PetalBlizzard,
+    RazorLeaf,
+    SolarBeam,
+    DobleEdge
+]);
 
 
-function perdimos(){
-    console.log("llegaaaaaaaaaaaaaaa");
-   
-        console.log("PERDIMOS");
-        alert("Perdiste")
-    
-}
+var Charizard = new Pokemon("Charizard", "../img/pokemon-02.png", "Fuego", 300, [
+    Slash,
+    Flamethrower,
+    ShadowClaw,
+    DragonClaw
+]);
 
-//chequear si morimos --> hacer funcion
-//dibujar en pantalla, bindear clicks 
-//hcer controlador
-//archivo que construya vista controlador y los inicie
+var Blastoise = new Pokemon("Blastoise", "../img/pokemon-03.png", "Agua", 300, [
+    WaterPulse,
+    HydroPump,
+    SkullBash,
+    Bite
+]);
 
-/*
+var Pidgeot = new Pokemon("Pidgeot", "../img/pokemon-04.png", "Volador", 300, [
+    QuickAttack,
+    AirSlash,
+    WingAttack,
+    Twister
+]);
 
-crear archivos:
+var Arcanine = new Pokemon("Arcanine", "../img/pokemon-13.png", "Fuego", 300, [
+    Flamethrower,
+    Bite,
+    SkullBash,
+    DobleEdge
+]);
 
--Batalla
--Vista batalla
--Batalla controlada
+var Gengar = new Pokemon("Gengar", "../img/pokemon-14.png", "Fantasma", 300, [
+    SuckerPunch,
+    ShadowBall,
+    DarkPulse,
+    DobleEdge
+]);
 
+var Zapdos = new Pokemon("Zapdos", "../img/pokemon-15.png", "Electrico", 300, [
+    DrillPeck,
+    AirSlash,
+    Lighting,
+    Thunder
+]);
 
+var Mewtwo = new Pokemon("Mewtwo", "../img/pokemon-16.png", "Psiquico", 300, [
+    Psychic,
+    Aura_Sphere,
+    Swift,
+    Earthquake
+]);
 
-*/
+//ARRAY DE POKEMONS
+var arrayPok = [Venusaur,Charizard,Blastoise,Pidgeot,Arcanine,Gengar,Zapdos,Mewtwo]
+
+//Declaracion de entrenadores
+var jugador = new Entrenador("yo", []);
+var enemigo = new Entrenador("Gary", []);
+var turno = 0;
+
+var controlador = new BatallaControlador(jugador,enemigo,turno);
+var vista = new VistaBatalla(jugador,enemigo,controlador,arrayPok);
+
+vista.inicio();
