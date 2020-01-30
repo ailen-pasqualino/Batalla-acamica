@@ -110,11 +110,11 @@ var Mewtwo = new Pokemon("Mewtwo", "../img/pokemon-16.png", "Psiquico", 300, [
 var arrayPok = [Venusaur,Charizard,Blastoise,Pidgeot,Arcanine,Gengar,Zapdos,Mewtwo]
 
 //Declaracion de entrenadores
-var jugador = new Entrenador("yo", []);
-var enemigo = new Entrenador("Gary", []);
+var jugador = new Entrenador("yo", [Charizard,Gengar]);
+var enemigo = new Entrenador("Gary", [Pidgeot,Venusaur]);
 var turno = 0;
 
 var controlador = new BatallaControlador(jugador,enemigo,turno);
-var vista = new VistaBatalla(jugador,enemigo,controlador,arrayPok);
+var vista = new VistaBatalla(controlador,arrayPok);
 
 vista.inicio();

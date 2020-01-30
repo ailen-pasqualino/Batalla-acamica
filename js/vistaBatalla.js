@@ -1,40 +1,19 @@
 class VistaBatalla{
-    constructor(jugador,enemigo,controlador,arrayPokemones){
-        this.jugador = jugador;
-        this.enemigo = enemigo;
+    constructor(controlador,arrayPokemones){
         this.controlador = controlador;
         this.arrayPokemones = arrayPokemones;
     }
 
-    inicio(){
+    inicio(){   
 
-        var pokemonElegido = parseInt(prompt("Elige el pokemon "));
-        var enemigoPokemon = parseInt(Math.random() *(enemigo.pokemones.length - 0) + 0);
+        this.controlador.seleccionPokemon();
+        this.controlador.seleccionEnemigo();
+        
+        var pokemonJugadorPeleando = this.controlador.jugador.pokemonElegido;
+        var pokemonEnemigoPeleando = this.controlador.enemigo.pokemonElegido;
 
-        var pokemonJugadorPeleando = jugador.pokemones[pokemonElegido];
-        var pokemonEnemigoPeleando = enemigo.pokemones[enemigoPokemon];
-
-
-        var jugadorVida = pokemonJugadorPeleando.vida;
-        var enemigoVida = pokemonEnemigoPeleando.vida;
-
-        $('#pokemon-jugador').attr('src', pokemonJugadorPeleando.sprite);
-        $('#pokemon-enemigo').attr('src', pokemonEnemigoPeleando.sprite);
-        
-        
-        $(".vida-jugador").attr("max", pokemonJugadorPeleando.vida)
-        $(".vida-enemigo").attr("max", pokemonEnemigoPeleando.vida)
-        
-         //Linkeamos progress bar con vidas
-         let barraVidaEnemigo = $(".vida-enemigo");
-         let barraVidaJugador = $(".vida-jugador");
-        
-         barraVidaJugador.attr("max", jugadorVida);
-         barraVidaEnemigo.attr("max", enemigoVida);
-        
-         barraVidaJugador.attr("value", pokemonJugadorPeleando.vida);
-         barraVidaEnemigo.attr("value", pokemonEnemigoPeleando.vida);
-        
+        this.dibujosJugador();
+        this.dibujosEnemigo();
         
          pokemonJugadorPeleando.ataques.forEach(element => {
             let ataque = document.createElement("li");
@@ -45,13 +24,12 @@ class VistaBatalla{
             //ataque.innerText = element.nombre;
             ataque.className = "ataque-item";
             
-            console.log(element.danio);
             //controlador
             $(ataque).click(function () {
                 console.log("DAÑOO " + ataque);
                 controlador.ataqueJugador(pokemonJugadorPeleando,pokemonEnemigoPeleando,element.danio);
-                barraVidaEnemigo.attr("value", pokemonEnemigoPeleando.vida);
-                barraVidaJugador.attr("value", pokemonJugadorPeleando.vida);
+                $(".vida-enemigo").attr("value", pokemonEnemigoPeleando.vida);
+                $(".vida-jugador").attr("value", pokemonJugadorPeleando.vida);
             })
             ataque.append(p);
             ataque.append(im);
@@ -60,4 +38,19 @@ class VistaBatalla{
             
         });
     }
+
+    dibujosJugador(){
+        $('#pokemon-jugador').attr('src', this.controlador.jugador.pokemonElegido.sprite);
+         $(".vida-jugador").attr("max", this.controlador.jugador.pokemonElegido.vida);
+         $(".vida-jugador").attr("value", this.controlador.jugador.pokemonElegido.vida);
+         
+    }
+
+
+    dibujosEnemigo(){
+        $('#pokemon-enemigo').attr('src', this.controlador.enemigo.pokemonElegido.sprite);
+        $(".vida-enemigo").attr("max", this.controlador.enemigo.pokemonElegido.vida);
+        $(".vida-enemigo").attr("value", this.controlador.enemigo.pokemonElegido.vida);
+    }
+
 }

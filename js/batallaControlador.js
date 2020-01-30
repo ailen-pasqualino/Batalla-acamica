@@ -6,6 +6,18 @@ class BatallaControlador{
         this.turno = turno;
     }
 
+    seleccionPokemon(){
+        let pokemonElegido = parseInt(prompt("Elige el pokemon "));
+        let enemigoPokemon = parseInt(Math.random() *(this.enemigo.pokemones.length - 0) + 0);
+
+        this.jugador.setPokemonActivo(pokemonElegido);
+        this.enemigo.setPokemonActivo(enemigoPokemon);
+    }
+    
+    seleccionEnemigo(){
+
+    }
+
     ataqueJugador(pokemonElegido,enemigoPokemon,danio) {
         console.log("ENEMIGO QUE VAMOS ATACAR " + enemigo);
         pokemonElegido.atacar(enemigoPokemon, danio);
@@ -30,25 +42,17 @@ class BatallaControlador{
     ataqueEnemigo(pokemonElegido,enemigoPokemon){
         
         console.log("vida nuestra" + pokemonElegido.vida);
-        /* enemigo.pokemones[0].atacar({
-            pokemonAtacado: jugador.pokemones[0],
-            ataqueNombre: element.nombre,
-            danio: element.danio
-        }) */
         pokemonElegido.vida -= enemigoPokemon.ataques[parseInt(Math.random() *(enemigoPokemon.ataques.length - 0) + 0)].danio;
-         
         
         console.log("VIDA NUESTRA DESPUES DEL ATAQUE " + pokemonElegido.vida);
         if(pokemonElegido.vida <= 0){
-            this.perdimos(pokemonElegido,enemigoPokemon);
+            this.perdimos();
         }
     }
 
     perdimos(){
-        console.log("llegaaaaaaaaaaaaaaa");
-       
-            console.log("PERDIMOS");
-            alert("Perdiste")
+        console.log("PERDIMOS");
+        alert("Perdiste")
         
     }
 }
