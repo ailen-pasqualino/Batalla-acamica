@@ -96,7 +96,12 @@ body{
     margin: 8px 0;
 }
 
-.vida-info p.vida-valor{
+.vida-info p.vida-valor-jugador{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.vida-info p.vida-valor-enemigo{
     font-size: 16px;
     font-weight: 700;
 }

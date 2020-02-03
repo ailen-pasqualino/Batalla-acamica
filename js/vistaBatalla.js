@@ -7,7 +7,6 @@ class VistaBatalla{
     inicio(){   
 
         this.controlador.seleccionPokemon();
-        this.controlador.seleccionEnemigo();
         
         var pokemonJugadorPeleando = this.controlador.jugador.pokemonElegido;
         var pokemonEnemigoPeleando = this.controlador.enemigo.pokemonElegido;
@@ -40,9 +39,11 @@ class VistaBatalla{
     }
 
     dibujosJugador(){
+
         $('#pokemon-jugador').attr('src', this.controlador.jugador.pokemonElegido.sprite);
          $(".vida-jugador").attr("max", this.controlador.jugador.pokemonElegido.vida);
          $(".vida-jugador").attr("value", this.controlador.jugador.pokemonElegido.vida);
+         $("p.vida-valor-jugador").text(this.controlador.jugador.pokemonElegido.vida)
          
     }
 
@@ -51,6 +52,7 @@ class VistaBatalla{
         $('#pokemon-enemigo').attr('src', this.controlador.enemigo.pokemonElegido.sprite);
         $(".vida-enemigo").attr("max", this.controlador.enemigo.pokemonElegido.vida);
         $(".vida-enemigo").attr("value", this.controlador.enemigo.pokemonElegido.vida);
+        $("p.vida-valor-enemigo").text(this.controlador.jugador.pokemonElegido.vida)
     }
 
 }
